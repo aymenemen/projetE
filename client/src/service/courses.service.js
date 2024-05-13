@@ -7,7 +7,7 @@ export default class CourseService {
 
     constructor() {
         this.apiHandler = axios.create({
-            baseURL: `${ env.REACT_APP_API_URL }/courses`,
+            baseURL: `http://localhost:4000/courses`,
             withCredentials: true
         })
     }
