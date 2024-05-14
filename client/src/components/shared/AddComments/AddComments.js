@@ -40,7 +40,7 @@ class AddComments extends Component {
         return (
             <Row>
                 <Col>
-                    <h2 className="mt-4 mb-3">Add a Comment</h2>
+                    <h2 className="mt-4 mb-3">Ajouter un commentaire</h2>
                     <Form className="comment-form" onSubmit={this.handleSubmit}>
                         <Form.Group controlId="content">
                             <Form.Control as='textarea' name="content" value={this.state.comment.content} onChange={this.handleInputChange} placeholder="Write your comment..." />

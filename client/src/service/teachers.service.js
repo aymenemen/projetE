@@ -7,7 +7,7 @@ export default class TeacherService {
 
     constructor() {
         this.apiHandler = axios.create({
-            baseURL: `http://localhost:4000/teachers`,
+            baseURL: `http://localhost:4000/api/teachers`,
             withCredentials: true
         })
     }

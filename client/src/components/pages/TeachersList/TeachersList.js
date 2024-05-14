@@ -14,9 +14,9 @@ const TeachersList = ({ history, handleToast, loggedUser, teacherInfo, updateFav
 
     const teachersService = new TeachersService();
 
-    // useEffect(() => {
-    //     refreshTeachers();
-    // }, []);
+    useEffect(() => {
+        refreshTeachers();
+    }, []);
 
     const refreshTeachers = () => {
         teachersService
@@ -26,7 +26,7 @@ const TeachersList = ({ history, handleToast, loggedUser, teacherInfo, updateFav
                 setFilteredTeachers([...res.data]);
             })
             .catch(() => {
-                history.push('/');
+                // history.push('/');
                 handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
             });
     };
@@ -55,10 +55,10 @@ const TeachersList = ({ history, handleToast, loggedUser, teacherInfo, updateFav
             <section className="container-fluid teacher-hero">
                 <div className="heading">
                     <Container>
-                        <h1 className="mt-5">Our teachers</h1>
+                        <h1 className="mt-5">Nos enseignants</h1>
                         <p>
-                            Help people learn new skills, advance their careers, <br></br> and explore their hobbies by
-                            sharing your knowledge.
+                        Aidez les gens à apprendre de nouvelles compétences, à faire avancer leur carrière <br></br> 
+                        et à explorer leurs loisirs en partageant vos connaissances.
                         </p>
                         <SearchBar filterBySearch={filterBySearch} sortBy={sortBy} />
                     </Container>

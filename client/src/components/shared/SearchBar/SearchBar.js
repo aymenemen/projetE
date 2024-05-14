@@ -43,7 +43,7 @@ class SearchBar extends Component {
 
                             <Form.Group as={Col} md='3' controlId="levelFilter">
                                 <Form.Control as='select' name='levelFilter' value={this.state.levelFilter} onChange={this.handleLevelChange}>
-                                    <option value='default' >Filter by level</option>
+                                    <option value='default' >Filter</option>
                                     <option value='Beginner' >Beginner</option>
                                     <option value='Intermidiate' >Intermidiate</option>
                                     <option value='Advanced' >Advanced</option>

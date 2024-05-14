@@ -34,7 +34,7 @@ const EditCourseForm = ({ teacherInfo, match, history, handleToast }) => {
                 const response = await coursesService.getCourse(course_id);
                 setCourse(response.data);
             } catch (error) {
-                history.push('/profile');
+                
                 handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
             }
         };
@@ -78,16 +78,16 @@ const EditCourseForm = ({ teacherInfo, match, history, handleToast }) => {
             <Container>
                 <Row>
                     <Col lg={{ span: 8, offset: 2 }}>
-                        <h1 className="mt-5">Edit Course</h1>
+                        <h1 className="mt-5">Modifier le cours</h1>
                         <hr />
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="title">
-                                <Form.Label>Title</Form.Label>
+                                <Form.Label>Titre</Form.Label>
                                 <Form.Control type="text" name="title" value={course.title} onChange={handleInputChange} required />
                             </Form.Group>
 
                             <Form.Group controlId="lead">
-                                <Form.Label>Lead Paragraph</Form.Label>
+                                <Form.Label>Paragraphe d'introduction</Form.Label>
                                 <Form.Control type="text" name="lead" value={course.lead} onChange={handleInputChange} required />
                             </Form.Group>
 
@@ -98,22 +98,22 @@ const EditCourseForm = ({ teacherInfo, match, history, handleToast }) => {
                             <Row>
                                 <Col md={6}>
                                     <Form.Group controlId='category'>
-                                        <Form.Label>Category</Form.Label>
+                                        <Form.Label>Categorie</Form.Label>
                                         <Form.Control as='select' name='category' value={course.category} onChange={handleInputChange}>
-                                            <option>Choose one option</option>
+                                            <option>Choisissez une option</option>
                                             <option value='Design'>Design</option>
                                             <option value='Development'>Development</option>
                                             <option value='Marketing'>Marketing</option>
-                                            <option value='Music'>Music</option>
-                                            <option value='Other'>Other</option>
+                                            <option value='Music'>Musique</option>
+                                            <option value='Other'>autre</option>
                                         </Form.Control>
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group controlId='difficultyLevel'>
-                                        <Form.Label>Level</Form.Label>
+                                        <Form.Label>niveau</Form.Label>
                                         <Form.Control as='select' name='difficultyLevel' value={course.difficultyLevel} onChange={handleInputChange}>
-                                            <option>Choose one option</option>
+                                            <option>Choisissez une option</option>
                                             <option value='All levels'>All levels</option>
                                             <option value='Beginner'>Beginner</option>
                                             <option value='Intermediate'>Intermediate</option>
@@ -123,38 +123,38 @@ const EditCourseForm = ({ teacherInfo, match, history, handleToast }) => {
                                 </Col>
                             </Row>
                             <Form.Group controlId="whatYouWillLearn">
-                                <Form.Label>Main Topics</Form.Label>
+                                <Form.Label>Principaux sujets</Form.Label>
                                 <Form.Control as='textarea' name="whatYouWillLearn" value={course.whatYouWillLearn} onChange={handleInputChange} required />
-                                <Form.Text id='whatYouWillLearn' muted>Separate topics with commas</Form.Text>
+                                <Form.Text id='whatYouWillLearn' muted>Séparez les sujets avec des virgules</Form.Text>
                             </Form.Group>
                             <Row>
                                 <Col md={6}>
                                     <Form.Group controlId="price">
-                                        <Form.Label>Price</Form.Label>
+                                        <Form.Label>Prix</Form.Label>
                                         <Form.Control type="number" name="price" value={course.price} onChange={handleInputChange} min='0' required />
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group controlId="duration">
-                                        <Form.Label>Duration</Form.Label>
+                                        <Form.Label>Durre</Form.Label>
                                         <Form.Control type="number" name="duration" value={course.duration} onChange={handleInputChange} min='0' required />
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Form.Group controlId="requirements">
-                                <Form.Label>Requirements</Form.Label>
+                                <Form.Label>Exigences</Form.Label>
                                 <Form.Control as='textarea' name="requirements" value={course.requirements} onChange={handleInputChange} />
-                                <Form.Text id='requirements' muted>Separate requirements with commas</Form.Text>
+                                <Form.Text id='requirements' muted>Séparez les sujets avec des virgules</Form.Text>
                             </Form.Group>
 
                             <Form.Group controlId="videos">
                                 <Form.Label>Videos</Form.Label>
                                 <Form.Control as='textarea' name="videos" value={course.videos} onChange={handleInputChange} />
-                                <Form.Text id='videos' muted>Separate URLs with commas</Form.Text>
+                                <Form.Text id='videos' muted>Séparez les URLs avec des virgules</Form.Text>
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>Imagen (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
+                                <Form.Label>Images (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
                                 <Form.Control type="file" onChange={handleImageUpload} />
                             </Form.Group>
 

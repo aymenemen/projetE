@@ -67,25 +67,25 @@ const EditTeacherForm = ({ loggedUser, teacherInfo, storeUser, history, handleTo
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <h1 className="mt-5">Edit your teacher Profile</h1>
+                        <h1 className="mt-5">Modifier votre profil d'enseignant</h1>
                         <hr />
 
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="name">
-                                <Form.Label>Name</Form.Label>
+                                <Form.Label>Nom</Form.Label>
                                 <Form.Control type="text" name="name" value={teacher.name} onChange={handleInputChange} required />
                             </Form.Group>
                             <Form.Group controlId="surname">
-                                <Form.Label>Surname</Form.Label>
+                                <Form.Label>Nom de famille</Form.Label>
                                 <Form.Control type="text" name="surname" value={teacher.surname} onChange={handleInputChange} required />
                             </Form.Group>
 
                             <Form.Group controlId="jobOccupation">
-                                <Form.Label>Job Occupation</Form.Label>
+                                <Form.Label>Profession</Form.Label>
                                 <Form.Control type="text" name="jobOccupation" value={teacher.jobOccupation} onChange={handleInputChange} />
                             </Form.Group>
                             <Form.Group controlId="description">
-                                <Form.Label>About me</Form.Label>
+                                <Form.Label>À propos de moi</Form.Label>
                                 <Form.Control as="textarea" name="description" value={teacher.description} onChange={handleInputChange} />
                             </Form.Group>
 
@@ -98,7 +98,7 @@ const EditTeacherForm = ({ loggedUser, teacherInfo, storeUser, history, handleTo
                                 </Tab>
                                 <Tab eventKey="website" title="Website">
                                     <Form.Group controlId="website">
-                                        <Form.Label>Website URL</Form.Label>
+                                        <Form.Label>Siteweb URL</Form.Label>
                                         <Form.Control type="text" name="website" value={teacher.website} onChange={handleInputChange} />
                                     </Form.Group>
                                 </Tab>
@@ -111,7 +111,7 @@ const EditTeacherForm = ({ loggedUser, teacherInfo, storeUser, history, handleTo
                             </Tabs>
 
                             <Form.Group>
-                                <Form.Label>Imagen (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
+                                <Form.Label>Images (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
                                 <Form.Control type="file" onChange={handleImageUpload} />
                             </Form.Group>
 

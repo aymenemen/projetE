@@ -20,17 +20,26 @@ const Signup = ({ storeUser, history, handleToast }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+  
     authService
       .signup(user)
       .then(newUser => {
-        storeUser(newUser.data);
-        history.push('/courses');
-        handleToast(true, 'Register successful!', '#d4edda');
+        if (newUser && newUser.data) {
+          storeUser(newUser.data);
+          history.push('/courses');
+          handleToast(true, 'Register successful!', '#d4edda');
+        } else {
+          handleToast(true, 'Unexpected response from server', '#f8d7da');
+        }
       })
-      .catch(err => handleToast(true, err.response.data.message[0].msg, '#f8d7da'));
+      .catch(err => {
+        if (err.response && err.response.data && err.response.data.message && err.response.data.message[0] && err.response.data.message[0].msg) {
+          handleToast(true, err.response.data.message[0].msg, '#f8d7da');
+        } else {
+          handleToast(true, 'An error occurred while signing up', '#f8d7da');
+        }
+      });
   };
-
   return (
     <motion.div initial='initial' animate='in' exit='out' variants={pageVariants} transition={pageTransition}>
       <section className='signup-page'>
@@ -59,7 +68,7 @@ const Signup = ({ storeUser, history, handleToast }) => {
                     value={user.username}
                     onChange={handleInputChange} />
                   <Form.Text id='passwordHelpBlock' muted>
-                    Your username must have more than 5 characters
+                  Votre username doit comporter plus de 5 caractères
                     </Form.Text>
                 </Form.Group>
 
@@ -73,12 +82,12 @@ const Signup = ({ storeUser, history, handleToast }) => {
                     value={user.password}
                     onChange={handleInputChange} />
                   <Form.Text id='passwordHelpBlock' muted>
-                    Your password must have more than 4 characters and contain a number
+                  Votre mot de passe doit comporter plus de 4 caractères et contenir un chiffre.
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId='email'>
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     required
                     type='email'
@@ -89,16 +98,16 @@ const Signup = ({ storeUser, history, handleToast }) => {
                 </Form.Group>
 
                 <Form.Group controlId='role'>
-                  <Form.Label>Choose role</Form.Label>
+                  <Form.Label>Sélectionnez le rôle</Form.Label>
                   <Form.Control as='select' name='role' value={user.role} onChange={handleInputChange}>
-                    <option>Which's your role?</option>
+                    <option>Quel est votre rôle ?</option>
                     <option value='Student' >Student</option>
                     <option value='Teacher' >Teacher</option>
                   </Form.Control>
                 </Form.Group>
 
                 <Form.Group className="mt-5 mb-3" style={{ width: '60%', margin: 'auto' }}>
-                  <Button className='btn-block' variant='dark' type='submit'>Let's start !</Button>
+                  <Button className='btn-block' variant='dark' type='submit'>Commençons !</Button>
                 </Form.Group>
               </Form>
             </Col>

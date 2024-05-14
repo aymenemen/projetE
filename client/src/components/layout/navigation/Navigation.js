@@ -14,13 +14,14 @@ const Navigation = ({ handleToast, storeUser, loggedUser }) => {
     const authService = new AuthService();
 
     const logOut = () => {
-        authService
-            .logout()
-            .then(() => {
-                storeUser(undefined);
-                handleToast(true, 'Logout successful!', '#d4edda');
-            })
-            .catch(err => handleToast(true, err.message, '#f8d7da'));
+        // authService
+        //     .logout()
+        //     .then(() => {
+        //         storeUser(undefined);
+        //         handleToast(true, 'Logout successful!', '#d4edda');
+        //     })
+        //     .catch(err => handleToast(true, err.message, '#f8d7da'));
+        window.location.reload()
     };
 
     const handleModal = visible => setShowModal(visible);
@@ -42,20 +43,20 @@ const Navigation = ({ handleToast, storeUser, loggedUser }) => {
                             width="30"
                             height="30"
                             className="d-inline-block align-top mx-2"
-                        /> freeDemy_
+                        /> LearnUp_
                     </Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Link to="/" className="border-top">
-                            <Nav.Link as="div">Home</Nav.Link>
+                            <Nav.Link as="div">Acceuil</Nav.Link>
                         </Link>
                         <Link to="/courses" className="border-top">
-                            <Nav.Link as="div">Courses</Nav.Link>
+                            <Nav.Link as="div">Cours</Nav.Link>
                         </Link>
                         <Link to="/teachers" className="border-top">
-                            <Nav.Link as="div">Teachers</Nav.Link>
+                            <Nav.Link as="div">Enseignants</Nav.Link>
                         </Link>
                         {loggedUser ? (
                             <>

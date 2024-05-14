@@ -7,7 +7,7 @@ export default class CommentsService {
 
     constructor() {
         this.apiHandler = axios.create({
-            baseURL: `http://localhost:4000/comments`,
+            baseURL: `http://localhost:4000/api/comments`,
             withCredentials: true
         })
     }

@@ -11,8 +11,8 @@ import DeleteMessage from '../../../shared/Delete-message/DeleteMessage';
 import './TeacherProfile.css';
 
 const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }) => {
-    const [teacher, setTeacher] = useState(undefined);
-    const [courses, setCourses] = useState(undefined);
+    const [teacher, setTeacher] = useState([]);
+    const [courses, setCourses] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     const teachersServices = new TeachersServices();
@@ -33,7 +33,7 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                 setCourses(response[1].data);
             })
             .catch(() => {
-                history.push('/teachers');
+                // history.push('/teachers');
                 handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
             });
     };
@@ -74,10 +74,10 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                 <DeleteMessage />
                 <Row className='justify-content-center'>
                     <Col xs='auto'>
-                        <Button variant='secondary' onClick={() => handleModal(false)}>Close</Button>
+                        <Button variant='secondary' onClick={() => handleModal(false)}>Fermer</Button>
                     </Col>
                     <Col xs='auto'>
-                        <Button onClick={deleteTeacher} variant='danger'>Delete teacher</Button>
+                        <Button onClick={deleteTeacher} variant='danger'>Supprimer l'enseignant</Button>
                     </Col>
                 </Row>
             </Popup>
@@ -86,7 +86,7 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                     <>
                         <Row>
                             <Col md={{ span: 8 }} lg={{ span: 8 }}>
-                                <p className="instructor" style={{ color: '#73726c' }}>INSTRUCTOR</p>
+                                <p className="instructor" style={{ color: '#73726c' }}>INSTRUCTEUR</p>
                                 <h1>{teacher.name} {teacher.surname} </h1>
                                 <p><strong>{teacher.jobOccupation}</strong></p>
                                 <hr></hr>
@@ -120,9 +120,9 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                                         )}
                                         {teacherInfo && teacherInfo._id === teacher._id && (
                                             <>
-                                                <Link to='/profile-teacher/edit-teacher' className="teacher-edit mt-5">Edit details</Link>
-                                                <Button onClick={() => handleModal(true)} className="teacher-delete">Delete</Button>
-                                                <Link to='/profile-teacher/create-course' className="course-add mt-5">Add course</Link>
+                                                <Link to='/profile-teacher/edit-teacher' className="teacher-edit mt-5">Modifier les détails</Link>
+                                                <Button onClick={() => handleModal(true)} className="teacher-delete">Supprimer</Button>
+                                                <Link to='/profile-teacher/create-course' className="course-add mt-5">Ajouter un cours</Link>
                                             </>
                                         )}
                                     </Row>
@@ -133,9 +133,9 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                         <Row>
                             <Col md={12}>
                                 {teacherInfo && teacherInfo._id === teacher._id ? (
-                                    <h2 className="mt-5 mb-5">My Courses</h2>
+                                    <h2 className="mt-5 mb-5">Mes Cours</h2>
                                 ) : (
-                                    <h2 className="mt-5 mb-5">Teacher's Courses</h2>
+                                    <h2 className="mt-5 mb-5">Les cours de l'enseignant</h2>
                                 )}
                             </Col>
                         </Row>
@@ -154,15 +154,15 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                             ) : teacherInfo && teacherInfo._id === teacher._id ? (
                                 <Col className="cta">
                                     <Row className="d-flex justify-content-between">
-                                        <p className="mt-2 mb-0">Let's start teaching, <strong>{teacher.name}</strong>! Create an Engaging Course.</p>
-                                        <Link to='/profile-teacher/create-course' className="btn btn-success ">Create new course</Link>
+                                        <p className="mt-2 mb-0">Commençons à enseigner. <strong>{teacher.name}</strong>! Créez un cours captivant</p>
+                                        <Link to='/profile-teacher/create-course' className="btn btn-success ">Créer un nouveau cours</Link>
                                     </Row>
                                 </Col>
                             ) : (
                                 <Col className="cta">
                                     <Row className="d-flex justify-content-between">
-                                        <p className="mt-2 mb-0">This teacher hasn't created courses yet.</p>
-                                        <Link to='/courses' className="btn btn-success ">See more courses</Link>
+                                        <p className="mt-2 mb-0">Ce professeur n'a pas encore créé de cours.</p>
+                                        <Link to='/courses' className="btn btn-success ">Voir plus de cours</Link>
                                     </Row>
                                 </Col>
                             )}
@@ -171,7 +171,7 @@ const TeacherProfile = ({ match, teacherInfo, loggedUser, history, handleToast }
                 ) : (
                     <Loader />
                 )}
-                <Link to="/teachers" className="btn btn-outline-dark mt-5">Go back</Link>
+                <Link to="/teachers" className="btn btn-outline-dark mt-5">retour</Link>
             </Container>
         </motion.div>
     );

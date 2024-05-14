@@ -29,7 +29,7 @@ const TeacherCard = props => {
                     <Card.Text></Card.Text>
                     <Row>
                         <Col className="d-flex align-items-center justify-content-between">
-                            <Link className="btn btn-outline-secondary teacher-view-more" to={`/teachers/${props._id}`}>View details</Link>
+                            <Link className="btn btn-outline-secondary teacher-view-more" to={`/teachers/${props._id}`}>Voir les détails</Link>
                             {props.userInfo &&
                                 <FavButton isTeacherFavBtn={isTeacherFavBtn} updateFavTeachers={props.updateFavTeachers} userInfo={props.userInfo} teacher={props.teacherInfo} itemInfo={props} />}
                         </Col>

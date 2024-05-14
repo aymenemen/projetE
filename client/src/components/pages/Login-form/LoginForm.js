@@ -34,7 +34,7 @@ const LoginForm = ({ storeUser, closeModal, handleToast }) => {
                     <hr />
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="username">
-                            <Form.Label>Usermane</Form.Label>
+                            <Form.Label>Username</Form.Label>
                             <Form.Control type="text" name="username" value={formInfo.username} onChange={handleInputChange} />
                         </Form.Group>
                         <Form.Group controlId="password">
@@ -42,8 +42,8 @@ const LoginForm = ({ storeUser, closeModal, handleToast }) => {
                             <Form.Control type="password" name="password" value={formInfo.password} onChange={handleInputChange} />
                         </Form.Group>
                         <div className="d-flex justify-content-between align-items-center">
-                            <Button variant="dark" type="submit">Enter</Button>
-                            <Form.Text id='loginHelpText' muted>Click outside to cancel</Form.Text>
+                            <Button variant="dark" type="submit">Entrer</Button>
+                            <Form.Text id='loginHelpText' muted>Cliquez à l'extérieur pour annuler</Form.Text>
                         </div>
                     </Form>
                 </Col>

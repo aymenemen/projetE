@@ -58,7 +58,7 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
             <Container>
                 <Row>
                     <Col lg={{ span: 8, offset: 2 }}>
-                        <h1 className="mt-5">Create New Course</h1>
+                        <h1 className="mt-5">Créer un nouveau course</h1>
                         <hr />
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="title">
@@ -67,7 +67,7 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                             </Form.Group>
 
                             <Form.Group controlId="lead">
-                                <Form.Label>Lead Paragraph</Form.Label>
+                                <Form.Label>Paragraphe d'introduction</Form.Label>
                                 <Form.Control type="text" name="lead" value={course.lead} onChange={handleInputChange} placeholder='Eye-catching phrase' required />
                             </Form.Group>
 
@@ -78,9 +78,9 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                             <Row>
                                 <Col md={6}>
                                     <Form.Group controlId='category'>
-                                        <Form.Label>Category</Form.Label>
+                                        <Form.Label>Categorie</Form.Label>
                                         <Form.Control as='select' name='category' value={course.category} onChange={handleInputChange}>
-                                            <option>Choose one option</option>
+                                            <option>Choisissez une option</option>
                                             <option value='Design'>Design</option>
                                             <option value='Development'>Development</option>
                                             <option value='Marketing'>Marketing</option>
@@ -93,7 +93,7 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                                     <Form.Group controlId='difficultyLevel'>
                                         <Form.Label>Level</Form.Label>
                                         <Form.Control as='select' name='difficultyLevel' value={course.difficultyLevel} onChange={handleInputChange}>
-                                            <option>Choose one option</option>
+                                            <option>Choisissez une option</option>
                                             <option value='All levels'>All levels</option>
                                             <option value='Beginner'>Beginner</option>
                                             <option value='Intermediate'>Intermediate</option>
@@ -105,24 +105,24 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                             <Form.Group controlId="whatYouWillLearn">
                                 <Form.Label>Main Topics</Form.Label>
                                 <Form.Control as='textarea' name="whatYouWillLearn" value={course.whatYouWillLearn} onChange={handleInputChange} placeholder='The main topics your students will learn' required />
-                                <Form.Text id='whatYouWillLearn' muted>Separate topics with commas</Form.Text>
+                                <Form.Text id='whatYouWillLearn' muted>Séparez les sujets avec des virgules</Form.Text>
                             </Form.Group>
                             <Row>
                                 <Col md={6}>
                                     <Form.Group controlId="price">
-                                        <Form.Label>Price</Form.Label>
+                                        <Form.Label>Prix</Form.Label>
                                         <Form.Control type="number" name="price" value={course.price} onChange={handleInputChange} min='0' placeholder="Don't be greedy..." required />
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group controlId="duration">
-                                        <Form.Label>Duration</Form.Label>
+                                        <Form.Label>Durée</Form.Label>
                                         <Form.Control type="number" name="duration" value={course.duration} onChange={handleInputChange} min='0' placeholder='How many hours?' required />
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Form.Group controlId="requirements">
-                                <Form.Label>Requirements</Form.Label>
+                                <Form.Label>Exigences</Form.Label>
                                 <Form.Control as='textarea' name="requirements" value={course.requirements} onChange={handleInputChange} placeholder='What is necessary to stay on course?' />
                                 <Form.Text id='requirements' muted>Separate requirements with commas</Form.Text>
                             </Form.Group>
@@ -130,7 +130,7 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                             <Form.Group controlId="videos">
                                 <Form.Label>Videos</Form.Label>
                                 <Form.Control as='textarea' name="videos" value={course.videos} onChange={handleInputChange} placeholder='Include here the URLs of your content (audio or video)' />
-                                <Form.Text id='videos' muted>Separate URLs with commas</Form.Text>
+                                <Form.Text id='videos' muted>Séparez les URLs avec des virgules</Form.Text>
                             </Form.Group>
 
                             <Form.Group>
@@ -144,7 +144,7 @@ const NewCourseForm = ({ teacherInfo, history, handleToast }) => {
                         </Form>
                         {uploadingActive || (
                             <Link to={`/teachers/${teacherInfo._id}`} className="btn btn-outline-dark mt-5" disabled>
-                                Go back
+                               retour
                             </Link>
                         )}
                     </Col>

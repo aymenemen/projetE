@@ -61,30 +61,30 @@ const NewTeacherForm = ({ loggedUser, storeUser, history, handleToast }) => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <h1 className='mt-5' >Create your Teacher Profile</h1>
+                        <h1 className='mt-5' >Créez votre profil d'enseignant</h1>
                         <hr />
 
                         <Form onSubmit={handleSubmit}>
                             <Row>
                                 <Col md={6}>
                                     <Form.Group controlId="name">
-                                        <Form.Label>Name</Form.Label>
+                                        <Form.Label>Nom</Form.Label>
                                         <Form.Control type="text" name="name" value={teacher.name} onChange={handleInputChange} placeholder='Enter your name' required />
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group controlId="surname">
-                                        <Form.Label>Surname</Form.Label>
+                                        <Form.Label>Nom de famille</Form.Label>
                                         <Form.Control type="text" name="surname" value={teacher.surname} onChange={handleInputChange} placeholder='Enter your last name' required />
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Form.Group controlId="jobOccupation">
-                                <Form.Label>Job Occupation</Form.Label>
+                                <Form.Label>Profession</Form.Label>
                                 <Form.Control type="text" name="jobOccupation" value={teacher.jobOccupation} onChange={handleInputChange} placeholder='What is your profession' />
                             </Form.Group>
                             <Form.Group controlId="description">
-                                <Form.Label>About me</Form.Label>
+                                <Form.Label>À propos de moi</Form.Label>
                                 <Form.Control as="textarea" name="description" value={teacher.description} onChange={handleInputChange} placeholder='Tell us something about you' />
                             </Form.Group>
 
@@ -97,7 +97,7 @@ const NewTeacherForm = ({ loggedUser, storeUser, history, handleToast }) => {
                                 </Tab>
                                 <Tab eventKey="website" title="Website">
                                     <Form.Group controlId="website">
-                                        <Form.Label>Website URL</Form.Label>
+                                        <Form.Label>Siteweb URL</Form.Label>
                                         <Form.Control type="text" name="website" value={teacher.website} onChange={handleInputChange} placeholder='Do you have any website?' />
                                     </Form.Group>
                                 </Tab>
@@ -110,7 +110,7 @@ const NewTeacherForm = ({ loggedUser, storeUser, history, handleToast }) => {
                             </Tabs>
 
                             <Form.Group className="mt-3">
-                                <Form.Label>Imagen (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
+                                <Form.Label>Images (file: jpg or png) {uploadingActive && <Loader />}</Form.Label>
                                 <Form.Control type="file" onChange={handleImageUpload} />
                             </Form.Group>
 

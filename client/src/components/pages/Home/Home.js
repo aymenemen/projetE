@@ -19,14 +19,14 @@ const Home = (props) => {
       .then(response => setCourses(response.data))
       .catch(() => {
         // props.history.push('/courses');
-        props.handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
+        props.handleToast(true, "Une erreur s'est produite, veuillez réessayer plus tard", '#f8d7da');
       });
   }, []);
   // Empty dependency array to ensure useEffect runs only once on component mount
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <Hero title='Aspire for more' p1='Learning keeps you in the lead.' p2='Get in-demand skills to impress anyone.' />
+      <Hero title='Aspirez à des sommets plus élevés' p1="L'apprentissage vous maintient en tête" p2="Acquérez des compétences recherchées pour impressionner n'importe qui" />
 
       <section className="container-fluid about">
         <Container>
@@ -35,9 +35,9 @@ const Home = (props) => {
               <Image style={{ width: '100%' }} src="https://res.cloudinary.com/dodneiokm/image/upload/v1608222311/project3-ironhack/freedemt_x0s3mo.png" />
             </Col>
             <Col md={6}>
-              <h2 className="mb-3">About us</h2>
-              <p>We Are Freedemy, an on-line learning platform. We help organizations of all kinds prepare for the ever-evolving future of work.</p>
-              <p>Connecting millions of students to the skills they need to succeed. We offer the opportunity to open access to education, especially for those whose opportunities have historically been limited. To do this, we’ve partnered with a number of organizations.</p>
+              <h2 className="mb-3">À propos</h2>
+              <p>Nous sommes LearnUp, une plateforme d'apprentissage en ligne. Nous aidons les organisations de toutes sortes à se préparer pour l'avenir en constante évolution du travail.</p>
+              <p>Relier des millions d'étudiants aux compétences dont ils ont besoin pour réussir. Nous offrons l'opportunité d'ouvrir l'accès à l'éducation, en particulier pour ceux dont les opportunités ont historiquement été limitées. Pour ce faire, nous avons noué des partenariats avec plusieurs organisations.</p>
             </Col>
           </Row>
         </Container>
@@ -46,7 +46,7 @@ const Home = (props) => {
       {/* Carousel */}
       <Container>
         <section className="carousel-section mt-5">
-          <h2 className="mt-5 mb-5 text-center ">Explore our schools to find your perfect program</h2>
+          <h2 className="mt-5 mb-5 text-center ">Explorez nos écoles pour trouver le programme parfait pour vous.</h2>
           {courses ? (
             <Carousel className='carousel'>
               <Carousel.Item>
@@ -69,7 +69,7 @@ const Home = (props) => {
           )}
         </section>
       </Container>
-      <Banner title='Make the most of your online learning experience' text='Our teachers will help you learn while staying home.' />
+      <Banner title="Tirez le meilleur parti de votre expérience d'apprentissage en ligne." text='Nos enseignants vous aideront à apprendre tout en restant chez vous.' />
 
       {/* Features */}
       <Features />

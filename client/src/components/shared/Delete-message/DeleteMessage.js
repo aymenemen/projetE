@@ -3,9 +3,9 @@ import { Container } from 'react-bootstrap'
 const DeleteMessage = () => {
   return (
     <Container>
-      <h5>Deletion request</h5>
+      <h5>Demande de suppression</h5>
       <hr />
-      <p>You are about to permanently delete information, are you sure?</p>
+      <p>Vous êtes sur le point de supprimer définitivement des informations, êtes-vous sûr ?</p>
     </Container>
   )
 }

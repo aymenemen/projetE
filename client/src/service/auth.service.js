@@ -7,7 +7,7 @@ export default class AuthService {
 
     constructor() {
         this.apiHandler = axios.create({
-            baseURL: `http://localhost:4000`,
+            baseURL: `http://localhost:4000/api`,
             withCredentials: true
         })
     }

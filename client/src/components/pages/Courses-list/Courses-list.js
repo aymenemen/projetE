@@ -14,9 +14,9 @@ const CoursesList = ({ loggedUser, teacherInfo, updateFavCourses, history, handl
 
     const coursesService = new CoursesService();
 
-    // useEffect(() => {
-    //     refreshCourses();
-    // }, );
+    useEffect(() => {
+        refreshCourses();
+    }, []);
 
     const refreshCourses = () => {
         coursesService
@@ -26,7 +26,7 @@ const CoursesList = ({ loggedUser, teacherInfo, updateFavCourses, history, handl
                 setFilteredCourses(res.data);
             })
             .catch(() => {
-                history.push('/');
+                
                 handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
             });
     };

@@ -112,16 +112,16 @@ const UserProfile = ({ loggedUser, teacherInfo, handleToast, storeUser, history,
         <DeleteMessage />
         <Row className='justify-content-center'>
           <Col xs='auto'>
-            <Button variant='secondary' onClick={() => handleModal(false)}>Close</Button>
+            <Button variant='secondary' onClick={() => handleModal(false)}>Fermer</Button>
           </Col>
           <Col xs='auto'>
-            <Button to={`/profile/delete-user/${loggedUser._id}`} onClick={deleteUser} variant='danger'>Delete account</Button>
+            <Button to={`/profile/delete-user/${loggedUser._id}`} onClick={deleteUser} variant='danger'>Supprimer le compte</Button>
           </Col>
         </Row>
       </Popup>
 
       <Container className="user-profile">
-        <h1 className="mt-5 mb-3">Welcome back {loggedUser.username} !</h1>
+        <h1 className="mt-5 mb-3">Bienvenue de retour {loggedUser.username} !</h1>
 
         {/* User details */}
         <section className="user-details">
@@ -135,13 +135,13 @@ const UserProfile = ({ loggedUser, teacherInfo, handleToast, storeUser, history,
           </article>
 
           <div className="user-buttons">
-            <Link to='/profile/edit-user' className="btn btn-info">Edit details</Link>
-            <Button onClick={() => handleModal(true)} className="btn btn-danger">Delete user</Button>
+            <Link to='/profile/edit-user' className="btn btn-info">Modifier les détails</Link>
+            <Button onClick={() => handleModal(true)} className="btn btn-danger">Supprimer l'utilisateur</Button>
 
             {loggedUser.role === 'Teacher' && teacherInfo ?
-              <Link to={`/teachers/${teacherInfo._id}`} className="btn btn-warning">Teacher profile</Link>
+              <Link to={`/teachers/${teacherInfo._id}`} className="btn btn-warning">Profil de l'enseignant</Link>
               : loggedUser.role === 'Teacher' && !teacherInfo ?
-                <Link to='/profile/create-teacher' className="btn btn-success">Create teacher profile</Link>
+                <Link to='/profile/create-teacher' className="btn btn-success">Créer un profil d'enseignant</Link>
                 : null
             }
           </div>
@@ -149,7 +149,7 @@ const UserProfile = ({ loggedUser, teacherInfo, handleToast, storeUser, history,
 
 
         {/* Your activity*/}
-        <h2 className="mt-5 mb-3">Your activity</h2>
+        <h2 className="mt-5 mb-3">Votre activité</h2>
         <Row className="mt-5">
           <Col>
             <TabNav tabs={['Favorite Courses', 'Favorite Teachers', 'Suggested Courses']} selected={selected} setSelected={setSelected}   >
@@ -186,7 +186,7 @@ const UserProfile = ({ loggedUser, teacherInfo, handleToast, storeUser, history,
           </Col>
         </Row>
 
-        <Link to="/courses" className="btn btn-outline-dark mt-5">Go back</Link>
+        <Link to="/courses" className="btn btn-outline-dark mt-5">retour</Link>
       </Container>
     </motion.div >
   )

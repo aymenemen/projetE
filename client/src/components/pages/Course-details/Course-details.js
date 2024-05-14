@@ -30,7 +30,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                 setComments(res[1].data);
             })
             .catch(() => {
-                history.push('/courses');
+                
                 handleToast(true, 'An error has occurred, please try again later', '#f8d7da');
             });
     };
@@ -43,7 +43,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                 handleToast(true, 'Delete successful!', '#d4edda');
             })
             .catch(() => {
-                history.push('/courses');
+                
                 handleToast(true, 'An error has occurred while deleting, please try again later', '#f8d7da');
             });
     };
@@ -75,8 +75,8 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                                         </p>
                                     )}
                                     <p>
-                                        <strong>Category:</strong> {course.category} | <strong>Difficulty Level:</strong> {course.difficultyLevel} | <strong>Price:</strong>{' '}
-                                        {course.price} € | <strong>Duration:</strong> {course.duration} hrs.
+                                        <strong>Catégorie:</strong> {course.category} | <strong>Difficulty Level:</strong> {course.difficultyLevel} | <strong>Prix:</strong>{' '}
+                                        {course.price} € | <strong>Durée:</strong> {course.duration} hr.
                                     </p>
                                 </Col>
                                 <Col md={{ span: 4 }}>
@@ -91,7 +91,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                                     <h3 className="mt-5 mb-3">Description</h3>
                                     <p>{course.description}</p>
 
-                                    <h3 className="mt-5 mb-4">What you will learn:</h3>
+                                    <h3 className="mt-5 mb-4">Ce que vous apprendrez:</h3>
                                     <ul className="whatYouWillLearn">
                                         {course.whatYouWillLearn.map((elm, idx) => (
                                             <li key={idx}>
@@ -100,7 +100,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                                             </li>
                                         ))}
                                     </ul>
-                                    <h3 className="mt-4 mb-4">Requirements:</h3>
+                                    <h3 className="mt-4 mb-4">Exigences:</h3>
                                     <ul className="requirements mb-4">
                                         {course.requirements.map((elm, idx) => (
                                             <li key={idx}>
@@ -116,7 +116,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                                         </Button>
                                     ) : (
                                         <Button onClick={toggleInput} disabled className="mt-3 mb-3 start-course">
-                                            Log In to see media
+                                            Connectez-vous pour voir les médias
                                         </Button>
                                     )}
 
@@ -149,7 +149,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
 
                         {/* Comments */}
 
-                        <h3 className="mt-5 mb-3">Comments</h3>
+                        {/* <h3 className="mt-5 mb-3">Comments</h3>
 
                         {comments.length > 0 ? (
                             comments.map((elm) => (
@@ -181,7 +181,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                             ))
                         ) : (
                             <p className="mb-3 ml-3">No comments yet</p>
-                        )}
+                        )} */}
 
                         {loggedUser && (
                             <section>
@@ -190,7 +190,7 @@ const CourseDetails = ({ match, history, handleToast, loggedUser }) => {
                         )}
 
                         <Link to="/courses" className="btn btn-sm btn-outline-dark mt-5">
-                            Go back
+                        retour
                         </Link>
                     </>
                 ) : (
